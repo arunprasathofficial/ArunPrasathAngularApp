@@ -1,0 +1,107 @@
+<section class="contact section-padding bg-light">
+    <div class="container py-5">
+        <div class="row h-100 align-items-center py-5">
+            <div class="col-lg-6">
+                <h1 class="display-4"><span class="text-success">Contact </span>Us</h1>
+            </div>
+            <div class="col-lg-6 d-none d-lg-block">
+                <img src="assets/images/contact_img1.png" alt="" class="img-fluid">
+            </div>
+        </div>
+    </div>
+
+    <div class="bg-white py-5">
+        <div class="container py-5">
+            <div class="row">
+                <div class="col-lg-8 mx-auto">
+                    <div class="text-center">
+                        <h2>CONNECT WITH US</h2>
+                        <p class="text-muted  mb-3">
+                            We would love to respond to your queries and help you succeed.<br>
+                            Feel free to get in touch with us.
+                        </p>
+                    </div>
+                    <form [formGroup]="contactForm" (ngSubmit)="onSubmit()">
+                        <div *ngIf="isSubmitted" class="alert alert-success alert-dismissible fade show my-5"
+                            role="alert">
+                            <strong>Done!</strong> {{successMessage}}
+                            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-md mb-4">
+                                <div class="form-floating">
+                                    <input type="text" class="form-control" id="floatingInputGrid"
+                                        placeholder="Enter your name" value="" formControlName="name">
+                                    <label for="floatingInputGrid">Name</label>
+                                </div>
+
+                                <small
+                                    *ngIf="contactForm.get('name').touched && contactForm.get('name').hasError('required')"
+                                    class="text-danger">
+                                    * Name is required.
+                                </small>
+
+                                <small
+                                    *ngIf="contactForm.get('name').touched && contactForm.get('name').hasError('minlength')"
+                                    class="text-danger">
+                                    * Name must be at least 3 characters long.
+                                </small>
+                            </div>
+                            <div class="col-md mb-4">
+                                <div class="form-floating">
+                                    <input type="email" class="form-control" id="floatingInputGrid"
+                                        placeholder="Enter email address" value="" formControlName="email">
+                                    <label for="floatingInputGrid">Email Address</label>
+                                </div>
+
+                                <small
+                                    *ngIf="contactForm.get('email').touched && contactForm.get('email').hasError('required')"
+                                    class="text-danger">
+                                    * Email address is required.
+                                </small>
+
+                                <small
+                                    *ngIf="contactForm.get('email').touched && contactForm.get('email').hasError('email')"
+                                    class="text-danger">
+                                    * Please provide a valid email address.
+                                </small>
+                            </div>
+
+                            <div class="col-12 mb-4">
+                                <div class="form-floating">
+                                    <textarea class="form-control" placeholder="Leave a message here"
+                                        id="floatingTextarea" style="height: 100px"
+                                        formControlName="message"></textarea>
+                                    <label for="floatingTextarea">Message</label>
+                                </div>
+                                <small
+                                    *ngIf="contactForm.get('message').touched && contactForm.get('message').hasError('required')"
+                                    class="text-danger">
+                                    * Message is required.
+                                </small>
+
+                                <small
+                                    *ngIf="contactForm.get('message').touched && contactForm.get('message').hasError('minlength')"
+                                    class="text-danger">
+                                    * Message must be at least 5 characters long.
+                                </small>
+
+                                <small
+                                    *ngIf="contactForm.get('message').touched && contactForm.get('message').hasError('maxlength')"
+                                    class="text-danger">
+                                    * Message must be max 200 characters long.
+                                </small>
+                            </div>
+                        </div>
+                        <div class="d-grid d-md-flex justify-content-md-end">
+                            <button type="submit" class="btn btn-success btn-lg" [disabled]="contactForm.invalid">
+                                <i class="fa-solid fa-paper-plane me-2"></i>Send
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

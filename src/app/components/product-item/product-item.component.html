@@ -1,0 +1,28 @@
+<section class="product-details section-padding bg-light">
+    <div class="container py-5">
+        <h1 class="display-5"><span class="text-success">Product</span> Details</h1>
+        <div class="container px-4 px-lg-5 my-5">
+            <div *ngIf="product" class="row gx-4 gx-lg-5 align-items-center">
+                <div class="col-md-6"><img class="card-img-top mb-5 mb-md-0"
+                        src="{{ product.productImage }}" alt="" /></div>
+                <div class="col-md-6">
+                    <h1 class="fw-normal">{{ product.productName }}</h1>
+                    <div class="fs-5 mb-3">
+                        <span class="text-success">{{ product.productPrice | currency:'LKR ' }}</span>
+                    </div>
+                    <p class="mb-5">
+                        {{ product.productDescription }}
+                    </p>
+                    <div class="d-flex">
+                        <input class="form-control text-center me-3" id="inputQuantity" type="num" value="1"
+                            style="max-width: 3rem" />
+                        <button class="btn btn-outline-success flex-shrink-0" type="button">
+                            <i class="fas fa-shopping-cart"></i>
+                            Add to cart
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

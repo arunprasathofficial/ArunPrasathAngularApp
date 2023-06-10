@@ -1,0 +1,137 @@
+/* You can add global styles to this file, and also import other style files */
+@import url(//fonts.googleapis.com/css?family=Montserrat:100,200,300,400,500,600,700,800,900);
+
+* {
+    font-family: 'montserrat', sans-serif;
+}
+
+body {
+    background-color: #ffffff;
+}
+
+.section-padding {
+    padding: 100px 0;
+}
+
+.carousel-item {
+    height: 100vh;
+    min-height: 300px;
+}
+
+.carousel-caption {
+    bottom: initial;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.carousel-caption h1 {
+    text-transform: uppercase;
+    font-weight: 700;
+    margin-top: 25px;
+}
+
+.navbar-nav a {
+    font-size: 15px;
+    text-transform: uppercase;
+    font-weight: 500;
+
+}
+
+.navbar-light .navbar-brand {
+    color: #000000;
+    text-transform: uppercase;
+    font-weight: 700;
+}
+
+.navbar-light .navbar-nav .nav-link.active {
+    color: #198754;
+    font-weight: 700;
+}
+
+.about h1 {
+    text-transform: uppercase;
+    font-weight: 700;
+}
+
+.about .features img {
+    width: 250px;
+}
+
+.contact h1 {
+    text-transform: uppercase;
+    font-weight: 700;
+}
+
+.profile h1 {
+    text-transform: uppercase;
+    font-weight: 700;
+}
+
+.profile h3 {
+    text-transform: uppercase;
+    font-weight: 500;
+}
+
+.card {
+    border: 0 solid transparent;
+}
+
+.details.card {
+    border: 2px solid #ececec;
+}
+
+.products h1 {
+    text-transform: uppercase;
+    font-weight: 700;
+}
+
+.products h3 {
+    text-transform: uppercase;
+    font-weight: 500;
+}
+
+.product-list .single-product .card p {
+    font-size: 14px;
+    font-weight: 500;
+}
+
+.product-details .display-5 {
+    text-transform: uppercase;
+    font-weight: 700;
+}
+
+@media only screen and (max-width: 767px) {
+    .navbar-nav {
+        text-align: center;
+    }
+
+    .carousel-caption h5 {
+        font-size: 20px;
+    }
+}
+
+@media only screen and (max-width: 991px) {
+    .about .display-4 {
+        text-align: center;
+    }
+
+    .about .lead {
+        text-align: center;
+    }
+
+    .contact .display-4 {
+        text-align: center;
+    }
+
+    .profile .display-4 {
+        text-align: center;
+    }
+
+    .products .display-4 {
+        text-align: center;
+    }
+
+    .product-details .display-5 {
+        text-align: center;
+    }
+}

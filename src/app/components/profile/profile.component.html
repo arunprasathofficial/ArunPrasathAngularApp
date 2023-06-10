@@ -1,0 +1,123 @@
+<section class="profile section-padding bg-light">
+    <div class="container py-5">
+        <div class="row h-100 align-items-center py-5">
+            <div class="col-lg-6">
+                <h1 class="display-4"><span class="text-success">Profile</span> Details</h1>
+            </div>
+            <div class="col-lg-6 d-none d-lg-block">
+                <img src="assets/images/profile_img1.png" alt="" class="img-fluid">
+            </div>
+        </div>
+    </div>
+
+    <div class="bg-white py-5">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-4">
+                    <div class="details card py-3">
+                        <div class="card-body">
+                            <div class="d-flex flex-column align-items-center text-center">
+                                <img src="assets/images/profile_img2.jpg" alt="Admin"
+                                    class="rounded-circle p-1 bg-success" width="150">
+                                <div class="mt-3">
+                                    <h4 class="text-success">{{ editProfileForm.controls['name'].value }}</h4>
+                                    <p class="text-secondary mb-2">{{ editProfileForm.controls['email'].value }}</p>
+                                    <p class="text-dark">{{ editProfileForm.controls['bio'].value }}</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-8">
+                    <div class="edit card">
+                        <div class="card-body">
+                            <h3 class="my-2"><span class="text-success">Edit</span> Details</h3>
+                            <form [formGroup]="editProfileForm" (ngSubmit)="onSubmit()" class="mt-3">
+                                <div *ngIf="isSubmitted" class="alert alert-success alert-dismissible fade show my-4"
+                                    role="alert">
+                                    <strong>Done!</strong> {{ successMessage }}
+                                    <button type="button" class="btn-close" data-bs-dismiss="alert"
+                                        aria-label="Close"></button>
+                                </div>
+
+                                <div class="row">
+                                    <div class="col-md mb-4">
+                                        <div class="form-floating">
+                                            <input type="text" class="form-control" id="floatingInputGrid"
+                                                placeholder="Enter your name" value="" formControlName="name">
+                                            <label for="floatingInputGrid">Name</label>
+                                        </div>
+
+                                        <small
+                                            *ngIf="editProfileForm.get('name').touched && editProfileForm.get('name').hasError('required')"
+                                            class="text-danger">
+                                            * Name is required.
+                                        </small>
+
+                                        <small
+                                            *ngIf="editProfileForm.get('name').touched && editProfileForm.get('name').hasError('minlength')"
+                                            class="text-danger">
+                                            * Name must be at least 3 characters long.
+                                        </small>
+                                    </div>
+                                    <div class="col-md mb-4">
+                                        <div class="form-floating">
+                                            <input type="email" class="form-control" id="floatingInputGrid"
+                                                placeholder="Enter email address" value="" formControlName="email">
+                                            <label for="floatingInputGrid">Email Address</label>
+                                        </div>
+
+                                        <small
+                                            *ngIf="editProfileForm.get('email').touched && editProfileForm.get('email').hasError('required')"
+                                            class="text-danger">
+                                            * Email address is required.
+                                        </small>
+
+                                        <small
+                                            *ngIf="editProfileForm.get('email').touched && editProfileForm.get('email').hasError('email')"
+                                            class="text-danger">
+                                            * Please provide a valid email address.
+                                        </small>
+                                    </div>
+
+                                    <div class="col-12 mb-4">
+                                        <div class="form-floating">
+                                            <textarea class="form-control" placeholder="Enter your bio here"
+                                                style="height: 100px" formControlName="bio"></textarea>
+                                            <label for="floatingTextarea">Bio</label>
+                                        </div>
+
+                                        <small
+                                            *ngIf="editProfileForm.get('bio').touched && editProfileForm.get('bio').hasError('required')"
+                                            class="text-danger">
+                                            * Bio is required.
+                                        </small>
+
+                                        <small
+                                            *ngIf="editProfileForm.get('bio').touched && editProfileForm.get('bio').hasError('minlength')"
+                                            class="text-danger">
+                                            * Bio must be at least 5 characters long.
+                                        </small>
+
+                                        <small
+                                            *ngIf="editProfileForm.get('bio').touched && editProfileForm.get('bio').hasError('maxlength')"
+                                            class="text-danger">
+                                            * Bio must be max 500 characters long.
+                                        </small>
+                                    </div>
+                                </div>
+                                <div class="d-grid d-md-flex justify-content-md-end">
+                                    <button type="submit" class="btn btn-success btn-lg"
+                                        [disabled]="editProfileForm.invalid">
+                                        <i class="fa-solid fa-pen me-2"></i>Update
+                                    </button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

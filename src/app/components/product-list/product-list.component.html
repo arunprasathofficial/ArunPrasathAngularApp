@@ -1,0 +1,37 @@
+<section class="products section-padding bg-light">
+    <div class="container py-5">
+        <div class="row h-100 align-items-center py-5">
+            <div class="col-lg-6">
+                <h1 class="display-4"><span class="text-success">Pro</span>ducts</h1>
+            </div>
+            <div class="col-lg-6 d-none d-lg-block">
+                <img src="assets/images/products_list_img5.png" alt="" class="img-fluid">
+            </div>
+        </div>
+    </div>
+    <div class="product-list bg-white py-5">
+        <div class="container">
+            <h3 class="text-center mb-5"><span class="text-success">Product</span> List</h3>
+            <div class="row justify-content-center pb-5">
+                <div *ngFor="let product of products"
+                    class="single-product col-lg-3 col-md-6 mb-4 mb-lg-0 py-3 d-flex align-items-stretch">
+                    <div class="card border">
+                        <a class="text-decoration-none text-dark" routerLinkActive="active"
+                            [routerLinkActiveOptions]="{exact: true}"
+                            routerLink="/product-details/{{ product.productId }}">
+                            <div class="card-body p-4">
+
+                                <img src="{{ product.productImage }}" alt="" class="img-fluid d-block mx-auto mb-3">
+                                <p>{{ product.productName }}</p>
+
+                                <div class="text-success">
+                                    <h5 class="header-4">{{ product.productPrice | currency:'LKR ' }}</h5>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
